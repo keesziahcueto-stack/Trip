@@ -1,0 +1,44 @@
+<!-- SEAT SELECTION -->
+<div id="seatSection" class="hidden">
+
+  <h2>💺 Select Your Seat</h2>
+  <p>Green = Available | Red = Selected</p>
+
+  <div class="seat-map">
+
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">A1</button>
+      <button class="seat" onclick="selectSeat(this)">A2</button>
+      <button class="seat" onclick="selectSeat(this)">A3</button>
+      <button class="seat" onclick="selectSeat(this)">A4</button>
+    </div>
+
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">B1</button>
+      <button class="seat" onclick="selectSeat(this)">B2</button>
+      <button class="seat" onclick="selectSeat(this)">B3</button>
+      <button class="seat" onclick="selectSeat(this)">B4</button>
+    </div>
+
+    <div class="row">
+      <button class="seat" onclick="selectSeat(this)">C1</button>
+      <button class="seat" onclick="selectSeat(this)">C2</button>
+      <button class="seat" onclick="selectSeat(this)">C3</button>
+      <button class="seat" onclick="selectSeat(this)">C4</button>
+    </div>
+
+  </div>
+
+  <button onclick="goPayment()">Continue</button>
+</div>
+
+
+<!-- TICKET -->
+<div id="ticketSection" class="hidden">
+
+  <h2>🎫 Boarding Pass</h2>
+
+  <div id="ticket"></div>
+
+  <button onclick="window.print()">🖨️ Print Ticket</button>
+</div>
