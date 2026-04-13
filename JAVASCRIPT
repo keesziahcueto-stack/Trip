@@ -1,0 +1,67 @@
+let selectedSeat = "";
+
+// 🎬 CINEMA STYLE SEAT SELECT
+function selectSeat(btn) {
+
+  // remove previous selection
+  document.querySelectorAll(".seat").forEach(s => {
+    s.classList.remove("selected");
+  });
+
+  // select new seat
+  btn.classList.add("selected");
+  selectedSeat = btn.innerText;
+
+  alert("Seat " + selectedSeat + " selected");
+}
+
+// 💳 GO TO PAYMENT
+function goPayment() {
+  if (!selectedSeat) {
+    alert("Please select a seat!");
+    return;
+  }
+
+  document.getElementById("seatSection").classList.add("hidden");
+  document.getElementById("payment").classList.remove("hidden");
+}
+
+// 🎫 GENERATE REALISTIC TICKET
+function generateTicket() {
+
+  let name = document.getElementById("name").value;
+  let dest = document.getElementById("destination").value;
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+
+  let price = 8000;
+  if (dest.toLowerCase().includes("japan")) price = 18000;
+  else if (dest.toLowerCase().includes("singapore")) price = 12000;
+  else if (dest.toLowerCase().includes("cebu")) price = 3000;
+
+  let down = price * 0.2;
+  let balance = price - down;
+
+  document.getElementById("payment").classList.add("hidden");
+  document.getElementById("ticketSection").classList.remove("hidden");
+
+  document.getElementById("ticket").innerHTML = `
+    <h3>✈️ SKYBOOK AIRLINES</h3>
+    -----------------------------
+
+    Passenger: ${name}
+    Destination: ${dest}
+    Date: ${date}
+    Time: ${time}
+    Seat: ${selectedSeat}
+
+    -----------------------------
+    Price: ₱${price}
+    Down Payment: ₱${down}
+    Balance: ₱${balance}
+
+    💳 Book Now, Pay Later Active
+
+    <div class="barcode"></div>
+  `;
+}
